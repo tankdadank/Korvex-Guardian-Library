@@ -8,3 +8,5 @@ pub use i18n::{I18n, Locale};
 pub use build::fingerprint::{BuildFingerprint, BuildHash};
 pub use model::telemetry::TelemetryMode;
 pub use model::capabilities::{CapabilitySnapshot, FeatureFlags};
+pub use model::modules::ModuleId;
+pub use model::feature_gate::feature_allowed;
