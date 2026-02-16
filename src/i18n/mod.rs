@@ -1,10 +1,11 @@
+use std::collections::HashMap;
+use once_cell::sync::Lazy;
+
 mod messages_en;
 mod messages_fr;
 
 use messages_en::MESSAGES_EN;
 use messages_fr::MESSAGES_FR;
-use once_cell::sync::Lazy;
-use std::collections::HashMap;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum Locale {

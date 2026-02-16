@@ -1,18 +1,17 @@
-use serde::{Serialize, Deserialize};
+use serde::{Deserialize, Serialize};
 
-/// Current Guardian module supported by KGL.
+/// Guardian modules known to KGL.
 ///
-/// For now only the IP module is defined.
-/// New modules (ssh-hardening, port-surface, integrity, ...) will be added later.
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
-#[serde(rename_all = "kebab-case")]
+/// At this stage, only the IP module is defined.
+/// Additional modules can be added as the Guardian stack grows.
+#[derive(Debug, Clone, Copy, Serialize, Deserialize, PartialEq, Eq, Hash)]
+#[serde(rename_all = "lowercase")]
 pub enum ModuleId {
-    /// IP module (whitelisting, geo, DNS, etc.).
     Ip,
 }
 
 impl ModuleId {
-    /// Stable identifier used in configs and capability snapshots.
+    /// Stable string identifier for this module, used in feature keys.
     pub fn as_str(&self) -> &'static str {
         match self {
             ModuleId::Ip => "ip",
