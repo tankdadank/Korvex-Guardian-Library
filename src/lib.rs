@@ -1,14 +1,10 @@
-pub fn add(left: u64, right: u64) -> u64 {
-    left + right
-}
+pub mod config;
+pub mod i18n;
+pub mod build;
+pub mod model;
 
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
-}
+pub use config::core::{CoreConfig, TelemetryConfig, ExtrasConfig, GatedFeaturesConfig};
+pub use i18n::{I18n, Locale};
+pub use build::fingerprint::{BuildFingerprint, BuildHash};
+pub use model::telemetry::TelemetryMode;
+pub use model::capabilities::{CapabilitySnapshot, FeatureFlags};
